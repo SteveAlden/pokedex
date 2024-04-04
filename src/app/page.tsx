@@ -11,9 +11,7 @@ export default async function Home() {
   const { pokemon } = await fetctPokemons();
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <PokemonList pokemon={pokemon} />
-      </div>
+      <PokemonList pokemon={pokemon} />
     </main>
   );
 }

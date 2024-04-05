@@ -5,5 +5,9 @@ export default function RPokemonLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <Container maxWidth='md'>{children}</Container>;
+  return (
+    <Container maxWidth='md' sx={{ marginTop: '100px' }}>
+      {children}
+    </Container>
+  );
 }

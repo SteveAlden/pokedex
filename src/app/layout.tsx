@@ -1,10 +1,15 @@
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
-import { Box } from '@mui/material';
 import Header from '@/components/layout/header';
+import localFont from 'next/font/local';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '../theme/theme';
 
-const inter = Inter({ subsets: ['latin'] });
+const myFont = localFont({
+  src: './fonts/Oxanium-Regular.ttf',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,9 +23,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
-        <Header />
-        <Box>{children}</Box>
+      <body className={myFont.className}>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <Header />
+            {children}
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

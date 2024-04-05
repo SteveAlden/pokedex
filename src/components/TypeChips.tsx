@@ -3,17 +3,23 @@ import React from 'react';
 
 interface ChipsProps {
   size: 'small' | 'medium';
-  label: keyof typeof chipColor;
+
+  items: any[];
 }
 
-const Chips: React.FC<ChipsProps> = ({ size, label }) => {
+export const TypeChips: React.FC<ChipsProps> = ({ size, items }) => {
   return (
-    <Chip
-      size={size}
-      label={label}
-      color='primary'
-      sx={{ backgroundColor: getChipStyle(label) }}
-    />
+    <>
+      {items?.map((item) => (
+        <Chip
+          key={item}
+          size={size}
+          label={item}
+          color='primary'
+          sx={{ backgroundColor: getChipcolor(item), margin: '5px' }}
+        />
+      ))}
+    </>
   );
 };
 
@@ -38,6 +44,6 @@ const chipColor = {
   Water: '#56AEFF',
 };
 
-const getChipStyle = (pokeType: keyof typeof chipColor) => {
+const getChipcolor = (pokeType: keyof typeof chipColor) => {
   return chipColor[pokeType] || null;
 };

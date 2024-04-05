@@ -2,6 +2,7 @@
 import { Masonry } from '@mui/lab';
 import { ImageListItem, ImageListItemBar, Typography } from '@mui/material';
 import Link from 'next/link';
+import DelayedChild from './DelayedChild';
 interface Pokemon {
   name: string;
   url: string;
@@ -18,11 +19,13 @@ interface PokemonListItemProps {
 
 export const PokemonList: React.FC<PokemonListProps> = ({ pokemon }) => {
   return (
-    <Masonry spacing={1.2} columns={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}>
-      {pokemon.map((poke, index) => (
-        <PokemonListItem poke={poke} index={index + 1} key={poke.name} />
-      ))}
-    </Masonry>
+    <DelayedChild>
+      <Masonry spacing={1.2} columns={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}>
+        {pokemon.map((poke, index) => (
+          <PokemonListItem poke={poke} index={index + 1} key={poke.name} />
+        ))}
+      </Masonry>
+    </DelayedChild>
   );
 };
 

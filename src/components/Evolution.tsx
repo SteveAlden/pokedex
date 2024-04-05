@@ -2,6 +2,7 @@
 import { Box } from '@mui/material';
 import Link from 'next/link';
 import React, { useState, CSSProperties } from 'react';
+import PokemonImage from './PokemonImage';
 
 interface EvolutionProps {
   id: string;
@@ -27,7 +28,7 @@ const Evolution: React.FC<EvolutionProps> = ({ id }) => {
           },
         }}
       >
-        <img src={`/images/pokemon/poke-${id}.png`} alt={`pokemon ${id}`} />
+        <PokemonImage id={id} src={`/images/pokemon/poke-${id}.png`} />
       </Box>
     </Link>
   );

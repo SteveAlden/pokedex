@@ -1,12 +1,6 @@
-import sharp from 'sharp';
 import styles from './page.module.css';
 import { PokemonList } from '@/components/PokemonList';
-
-const fetctPokemons = async () => {
-  const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151');
-  const pokemonData = await res.json();
-  return { pokemon: pokemonData.results };
-};
+import { fetchAndTrimImages, fetctPokemons } from '@/data.utils';
 
 export default async function Home() {
   const { pokemon } = await fetctPokemons();
@@ -19,22 +13,3 @@ export default async function Home() {
     </main>
   );
 }
-
-const fetchAndTrimImages = async (ids: string[]) => {
-  const imagePromises = ids.map(fetchImageAndTrim);
-  const images = await Promise.all(imagePromises);
-  return images;
-};
-
-const fetchImageAndTrim = async (id: string) => {
-  const res = await fetch(
-    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`
-  );
-
-  const buffer = await res.arrayBuffer();
-
-  const trimmedImage = await sharp(buffer).trim().toBuffer();
-  const base64Image = Buffer.from(trimmedImage).toString('base64');
-  const src = `data:image/png;base64,${base64Image}`;
-  return src;
-};

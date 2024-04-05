@@ -66,26 +66,7 @@ const PokemonListItem: React.FC<PokemonListItemProps> = ({
           },
         }}
       >
-        <PokemonImage
-          id={`${index}`}
-          src={imageSrc}
-          // sprite={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${index}.png`}
-        />
-        {/* <img
-          // srcSet={`/images/pokemon-trim-top/poke-${index}.png?w=248&fit=crop&auto=format&dpr=2 2x`}
-          // src={`/images/pokemon-trim-top/poke-${index}.png?w=248&fit=crop&auto=format`}
-          // src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png`}
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${index}.png`}
-          alt={poke.name}
-          loading='eager'
-          style={{
-            // objectFit: 'cover',
-            // objectPosition: 'center',
-            overflow: 'hidden',
-            WebkitBoxReflect:
-              'below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent) , to(rgba(250, 250, 250, 0.1)))',
-          }}
-        /> */}
+        <PokemonImage id={`${index}`} src={imageSrc} />
         <ImageListItemBar
           position='below'
           title={

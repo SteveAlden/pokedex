@@ -1,6 +1,6 @@
 import React from 'react';
 import Evolution from './Evolution';
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Filled from './wrapper/Filled';
 
 interface EvolutionProps {

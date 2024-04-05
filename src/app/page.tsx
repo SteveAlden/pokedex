@@ -1,5 +1,5 @@
 import styles from './page.module.css';
-import { PokemonList } from '@/components/PokemonList';
+import { PokemonList } from '@/app/components/PokemonList';
 import { fetchAndTrimImages, fetctPokemons } from '@/utils/data.utils';
 
 export default async function Home() {

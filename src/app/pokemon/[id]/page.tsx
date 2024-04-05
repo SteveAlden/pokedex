@@ -1,17 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
-import Evolutions from '@/components/Evolutions';
+import Evolutions from '@/app/components/Evolutions';
 import {
   fetchImageAndTrim,
   fetchPokeApiData,
   fetchPokemonGitData,
 } from '@/utils/data.utils';
-import Description from '@components/Description';
-import Info from '@components/Info';
-import Name from '@components/Name';
-import PokemonImage from '@components/PokemonImage';
-import PokemonType from '@components/PokemonType';
-import Stats from '@components/Stats';
-import Weakness from '@components/Weakness';
+import Description from '@/app/components/Description';
+import Info from '@/app/components/Info';
+import Name from '@/app/components/Name';
+import PokemonImage from '@/app/components/PokemonImage';
+import PokemonType from '@/app/components/PokemonType';
+import Stats from '@/app/components/Stats';
+import Weakness from '@/app/components/Weakness';
 import { Box } from '@mui/material';
 
 interface Pokemon {

@@ -8,6 +8,7 @@ import PokemonType from '@components/PokemonType';
 import Stats from '@components/Stats';
 import Weakness from '@components/Weakness';
 import { Box } from '@mui/material';
+import sharp from 'sharp';
 
 interface Pokemon {
   name: string;
@@ -24,10 +25,11 @@ const Page = async ({ params: { id } }: { params: { id: string } }) => {
   const { name, height, weight, description, baseStats, genus } = pokemon;
   const pokemonEv = await fetchPokemonGitData(id);
   const { type, weaknesses } = pokemonEv;
+  const imageSrc = await fetchImageAndTrim(id);
 
   return (
     <Box>
-      <PokemonImage id={id} />
+      <PokemonImage id={id} src={imageSrc} />
       <Name name={name} genus={genus} />
       <PokemonType pokemonType={type} />
       <Info height={height} id={id} weight={weight} />
@@ -50,7 +52,7 @@ const fetchPokeApiData = async (pokemonId: string) => {
       res.json()
     );
 
-    const { id, name, height, weight, stats } = pokemonData;
+    const { id, name, height, weight, stats, sprites } = pokemonData;
     const { base_happiness, capture_rate, habitat } = speciesData;
     let baseStats = stats?.map((stat: any) => ({
       statName: stat?.stat?.name,
@@ -77,6 +79,7 @@ const fetchPokeApiData = async (pokemonId: string) => {
       genus,
       description,
       baseStats,
+      sprite: sprites.other.home.front_default,
     };
   } catch (error) {
     console.error('Failed to fetch Pokemon data:', error);
@@ -95,3 +98,16 @@ const fetchPokemonGitData = async (id: string) => {
 };
 
 export default Page;
+
+const fetchImageAndTrim = async (id: string) => {
+  const res = await fetch(
+    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`
+  );
+
+  const buffer = await res.arrayBuffer();
+
+  const trimmedImage = await sharp(buffer).trim().toBuffer();
+  const base64Image = Buffer.from(trimmedImage).toString('base64');
+  const src = `data:image/png;base64,${base64Image}`;
+  return src;
+};

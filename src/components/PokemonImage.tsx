@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-async-client-component */
 /* eslint-disable @next/next/no-img-element */
-const PokemonImage = ({ id }: { id: string }) => {
+const PokemonImage = ({ id, src }: { id: string; src: string }) => {
   const imageStyles = {
     margin: 'auto',
     marginBottom: '10px',
@@ -12,7 +13,10 @@ const PokemonImage = ({ id }: { id: string }) => {
   return (
     <img
       style={imageStyles}
-      src={`/images/pokemon-trim-top/poke-${id}.png`}
+      // src={image}
+      // src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`}
+      src={src}
+      // src={`/images/pokemon-trim-top/poke-${id}.png`}
       alt={`pokemon ${id}`}
     />
   );

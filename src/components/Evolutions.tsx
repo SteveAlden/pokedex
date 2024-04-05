@@ -1,6 +1,7 @@
 import React from 'react';
 import Evolution from './Evolution';
 import { Box, Paper, Typography } from '@mui/material';
+import Filled from './wrapper/Filled';
 
 interface EvolutionProps {
   prev_evolution?: Array<{ num: string; name: string }>;
@@ -23,21 +24,7 @@ const Evolutions: React.FC<EvolutionProps> = ({
     ));
 
   return (
-    <Paper
-      sx={{
-        width: '100%',
-        margin: '5px',
-        backgroundColor: 'rgb(25, 25, 25)',
-        borderRadius: '12px',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        boxShadow: '0px 5px 10px 0px rgba(0, 0, 0, 0.4)',
-        padding: '2vh 5vw 2vh 5vw',
-        marginTop: '20px',
-      }}
-    >
+    <Filled>
       <Typography
         variant='h4'
         sx={{
@@ -54,7 +41,7 @@ const Evolutions: React.FC<EvolutionProps> = ({
         <Evolution id={id} />
         {renderEvolutions(next_evolution)}
       </Box>
-    </Paper>
+    </Filled>
   );
 };
 

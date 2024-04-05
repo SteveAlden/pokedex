@@ -1,6 +1,6 @@
 import styles from './page.module.css';
 import { PokemonList } from '@/components/PokemonList';
-import { fetchAndTrimImages, fetctPokemons } from '@/data.utils';
+import { fetchAndTrimImages, fetctPokemons } from '@/utils/data.utils';
 
 export default async function Home() {
   const { pokemon } = await fetctPokemons();

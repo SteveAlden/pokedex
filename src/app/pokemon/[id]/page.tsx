@@ -4,7 +4,7 @@ import {
   fetchImageAndTrim,
   fetchPokeApiData,
   fetchPokemonGitData,
-} from '@/data.utils';
+} from '@/utils/data.utils';
 import Description from '@components/Description';
 import Info from '@components/Info';
 import Name from '@components/Name';

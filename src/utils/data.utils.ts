@@ -3,7 +3,7 @@ import {
   POKEMON_GITDATA_URL,
   POKE_API_BASE_URL,
   SPRITES_BASE_URL,
-} from './constants';
+} from '../constants';
 
 export const fetctPokemons = async () => {
   const res = await fetch(`${POKE_API_BASE_URL}?limit=151`);

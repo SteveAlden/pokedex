@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/app/components/layout/header';
 import localFont from 'next/font/local';
-// import { ThemeProvider } from '@mui/material/styles';
-// import theme from '../theme/theme';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '../theme/theme';
 
 const myFont = localFont({
   src: './fonts/Oxanium-Regular.ttf',
@@ -24,12 +24,12 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={myFont.className}>
-        {/* <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}> */}
-        <Header />
-        {children}
-        {/* </ThemeProvider>
-        </AppRouterCacheProvider> */}
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <Header />
+            {children}
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

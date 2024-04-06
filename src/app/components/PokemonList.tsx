@@ -1,4 +1,3 @@
-'use client';
 /* eslint-disable @next/next/no-img-element */
 import { Masonry } from '@mui/lab';
 import { ImageListItem, ImageListItemBar, Typography } from '@mui/material';
@@ -53,7 +52,7 @@ const PokemonListItem: React.FC<PokemonListItemProps> = ({
         key={index}
         sx={{
           borderRadius: '10px',
-          paddingTop: '20px',
+          padding: '20px 10px 10px 10px',
           transition: '0.15s',
           backdropFilter: 'blur(16px) saturate(180%)',
           '-webkit-backdrop-filter': 'blur(16px) saturate(180%)',
@@ -66,7 +65,7 @@ const PokemonListItem: React.FC<PokemonListItemProps> = ({
           },
         }}
       >
-        <PokemonImage id={`${index}`} src={imageSrc} />
+        <PokemonImage id={`${index}`} src={imageSrc} showReflection fullWidth />
         <ImageListItemBar
           position='below'
           title={

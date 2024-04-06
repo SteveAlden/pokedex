@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Box } from '@mui/material';
 import Link from 'next/link';
-import React, { useState, CSSProperties } from 'react';
+import React from 'react';
 import PokemonImage from './PokemonImage';
 
 interface EvolutionProps {
@@ -28,7 +28,7 @@ const Evolution: React.FC<EvolutionProps> = ({ id }) => {
           },
         }}
       >
-        <PokemonImage id={id} src={`/images/pokemon/poke-${id}.png`} />
+        <PokemonImage id={id} fullWidth />
       </Box>
     </Link>
   );

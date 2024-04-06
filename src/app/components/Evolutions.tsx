@@ -4,25 +4,10 @@ import { Box, Typography } from '@mui/material';
 import Filled from './wrapper/Filled';
 
 interface EvolutionProps {
-  prev_evolution?: Array<{ num: string; name: string }>;
-  next_evolution?: Array<{ num: string; name: string }>;
-  id: string;
+  evolutions?: Array<{ id: string; name: string }>;
 }
 
-const Evolutions: React.FC<EvolutionProps> = ({
-  prev_evolution,
-  next_evolution,
-  id,
-}) => {
-  if (!prev_evolution && !next_evolution) return null;
-
-  const renderEvolutions = (
-    evolutions: Array<{ num: string; name: string }> | undefined
-  ) =>
-    evolutions?.map((t) => (
-      <Evolution key={t.name} id={t.num.replace(/^0+/, '')} />
-    ));
-
+const Evolutions: React.FC<EvolutionProps> = ({ evolutions }) => {
   return (
     <Filled>
       <Typography
@@ -36,10 +21,17 @@ const Evolutions: React.FC<EvolutionProps> = ({
       >
         Evolutions
       </Typography>
-      <Box sx={{ display: 'flex', padding: 0 }}>
-        {renderEvolutions(prev_evolution)}
-        <Evolution id={id} />
-        {renderEvolutions(next_evolution)}
+      <Box
+        sx={{
+          display: 'flex',
+          padding: 0,
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+        }}
+      >
+        {evolutions?.map((evolution) => (
+          <Evolution key={evolution.name} id={evolution.id} />
+        ))}
       </Box>
     </Filled>
   );

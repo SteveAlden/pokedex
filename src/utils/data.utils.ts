@@ -39,7 +39,23 @@ export const fetchPokeApiData = async (pokemonId: string) => {
       res.json()
     );
 
-    const { id, name, height, weight, stats, sprites } = pokemonData;
+    const { id, name, height, weight, stats, sprites, types } = pokemonData;
+    const typeNames = types.map((type: any) => type.type.name);
+    let weaknesses: string[] = [];
+    for (const type of types) {
+      const response = await fetch(type.type.url);
+      const typeData = await response.json();
+      const typeWeaknesses = typeData.damage_relations.double_damage_from.map(
+        (weakness: any) => weakness.name
+      );
+      weaknesses = [...weaknesses, ...typeWeaknesses];
+    }
+
+    // Remove duplicates
+    weaknesses = weaknesses.filter(
+      (value, index, self) => self.indexOf(value) === index
+    );
+
     const { base_happiness, capture_rate, habitat } = speciesData;
     let baseStats = stats?.map((stat: any) => ({
       statName: stat?.stat?.name,
@@ -58,8 +74,8 @@ export const fetchPokeApiData = async (pokemonId: string) => {
     return {
       id,
       name,
-      height,
-      weight,
+      height: height / 10,
+      weight: weight / 10,
       base_happiness,
       capture_rate,
       habitat,
@@ -67,6 +83,8 @@ export const fetchPokeApiData = async (pokemonId: string) => {
       description,
       baseStats,
       sprite: sprites.other.home.front_default,
+      type: typeNames,
+      weaknesses,
     };
   } catch (error) {
     console.error('Failed to fetch Pokemon data:', error);
@@ -81,3 +99,29 @@ export const fetchPokemonGitData = async (id: string) => {
 
   return pokemon;
 };
+
+export const fetchEvolutions = async (id: string) => {
+  const res = await fetch(`${POKE_API_BASE_URL}/${id}`);
+  const pokemonData = await res.json();
+  const speciesData = await fetch(pokemonData?.species?.url).then((res) =>
+    res.json()
+  );
+  const evolutionChain = await fetch(speciesData.evolution_chain.url).then(
+    (res) => res.json()
+  );
+
+  const evolutions = extractEvolutions(evolutionChain.chain);
+  return evolutions;
+};
+
+function extractEvolutions(chain: any): { id: string; name: string }[] {
+  const evolutions = [
+    { id: chain.species.url.split('/').slice(-2)[0], name: chain.species.name },
+  ];
+
+  chain.evolves_to.forEach((evolution: any) => {
+    evolutions.push(...extractEvolutions(evolution));
+  });
+
+  return evolutions;
+}

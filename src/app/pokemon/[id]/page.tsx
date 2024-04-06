@@ -1,10 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Evolutions from '@/app/components/Evolutions';
-import {
-  fetchImageAndTrim,
-  fetchPokeApiData,
-  fetchPokemonGitData,
-} from '@/utils/data.utils';
+import { fetchEvolutions, fetchPokeApiData } from '@/utils/data.utils';
 import Description from '@/app/components/Description';
 import Info from '@/app/components/Info';
 import Name from '@/app/components/Name';
@@ -22,21 +18,28 @@ interface Pokemon {
 
 const Page = async ({ params: { id } }: { params: { id: string } }) => {
   const pokemon: any = await fetchPokeApiData(id);
-  const { name, height, weight, description, baseStats, genus } = pokemon;
-  const pokemonEv = await fetchPokemonGitData(id);
-  const { type, weaknesses } = pokemonEv;
-  const imageSrc = await fetchImageAndTrim(id);
+  const {
+    name,
+    height,
+    weight,
+    description,
+    baseStats,
+    genus,
+    type,
+    weaknesses,
+  } = pokemon;
+  const evolutions = await fetchEvolutions(id);
 
   return (
     <Box>
-      <PokemonImage id={id} src={imageSrc} />
+      <PokemonImage id={id} showReflection fullWidth />
       <Name name={name} genus={genus} />
       <PokemonType pokemonType={type} />
       <Info height={height} id={id} weight={weight} />
       <Description description={description} />
       <Weakness weaknesses={weaknesses} />
       <Stats stats={baseStats} />
-      <Evolutions {...pokemonEv} />
+      <Evolutions evolutions={evolutions} />
     </Box>
   );
 };

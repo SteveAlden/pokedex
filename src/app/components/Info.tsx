@@ -20,7 +20,7 @@ const Info: React.FC<InfoProps> = ({ height, id, weight }) => {
         }}
       >
         <Typography style={{ color: 'rgb(137, 137, 137)' }} variant='h6'>
-          {height}
+          {height} m
         </Typography>
         <Typography style={{ color: 'rgb(137, 137, 137)' }}>Height</Typography>
       </Box>
@@ -44,7 +44,7 @@ const Info: React.FC<InfoProps> = ({ height, id, weight }) => {
         }}
       >
         <Typography style={{ color: 'rgb(137, 137, 137)' }} variant='h6'>
-          {weight}
+          {weight} kg
         </Typography>
         <Typography style={{ color: 'rgb(137, 137, 137)' }}>Weight</Typography>
       </Box>

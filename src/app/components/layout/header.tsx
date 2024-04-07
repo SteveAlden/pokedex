@@ -1,12 +1,23 @@
+'use client';
 /* eslint-disable @next/next/no-img-element */
 // generate a header component
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
 import CustomizedSelects from '../SelectGeneration';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 export default function Header() {
+  const pathname = usePathname();
+  const [showGenerationSelector, setShowGenerationSelector] = useState(
+    pathname === '/'
+  );
+
+  useEffect(() => {
+    setShowGenerationSelector(pathname === '/');
+  }, [pathname]);
+
   return (
     <AppBar
       position='fixed'
@@ -32,7 +43,7 @@ export default function Header() {
             </Box>
           </Link>
         </Box>
-        <CustomizedSelects />
+        {showGenerationSelector && <CustomizedSelects />}
       </Toolbar>
     </AppBar>
   );

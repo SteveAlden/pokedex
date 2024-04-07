@@ -8,6 +8,7 @@ interface PokemonImageProps {
   id: string;
   showReflection?: boolean;
   fullWidth?: boolean;
+  trimmedImage?: boolean;
 }
 
 const getImageStyles = (fullWidth?: boolean, showReflection?: boolean) => ({
@@ -27,13 +28,14 @@ const PokemonImage: React.FC<PokemonImageProps> = ({
   id,
   showReflection,
   fullWidth,
+  trimmedImage,
 }) => {
   const imageStyles = getImageStyles(fullWidth, showReflection);
 
   return (
     <img
       style={imageStyles}
-      src={`/images/sprites/poke-${id}.png`}
+      src={`/images/${trimmedImage ? 'sprites-trimmed' : 'sprites'}/poke-${id}.png`}
       alt={`pokemon ${id}`}
     />
   );

@@ -12,7 +12,14 @@ const Weakness: React.FC<WeaknessProps> = ({ weaknesses }) => {
   return (
     <Filled>
       <Typography variant='h4'>Weakness</Typography>
-      <Box sx={{ display: 'flex', padding: 0 }}>
+      <Box
+        sx={{
+          display: 'flex',
+          padding: 0,
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+        }}
+      >
         <TypeChips size='small' items={weaknesses} />
       </Box>
     </Filled>

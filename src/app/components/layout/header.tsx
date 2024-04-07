@@ -4,6 +4,7 @@ import React from 'react';
 import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
+import CustomizedSelects from '../SelectGeneration';
 
 export default function Header() {
   return (
@@ -16,17 +17,22 @@ export default function Header() {
       }}
     >
       <Toolbar>
-        <Link href='/'>
-          <Box sx={{ display: 'flex' }}>
-            <Image
-              alt=''
-              src='/images/ball-master.png'
-              width={35}
-              height={35}
-            />
-            <Typography variant='h5'>Pokédex</Typography>
-          </Box>
-        </Link>
+        <Box sx={{ display: 'flex', flexGrow: 1 }}>
+          <Link href='/'>
+            <Box sx={{ display: 'flex', flexGrow: 1 }}>
+              <Image
+                alt=''
+                src='/images/ball-master.png'
+                width={35}
+                height={35}
+              />
+              <Typography variant='h5' sx={{}}>
+                Pokédex
+              </Typography>
+            </Box>
+          </Link>
+        </Box>
+        <CustomizedSelects />
       </Toolbar>
     </AppBar>
   );

@@ -3,7 +3,6 @@ import { Box, Paper, Typography } from '@mui/material';
 
 const paperStyles = {
   width: '100%',
-  margin: '5px',
   backgroundColor: 'rgb(25, 25, 25)',
   borderRadius: '12px',
   display: 'flex',

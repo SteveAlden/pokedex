@@ -13,7 +13,7 @@ export const TypeChips: React.FC<ChipsProps> = ({ size, items }) => {
         <Chip
           key={item}
           size={size}
-          label={item}
+          label={item?.charAt(0)?.toUpperCase() + item?.slice(1)}
           color='primary'
           sx={{
             backgroundColor: getChipcolor(item as keyof typeof TYPE_COLORS),

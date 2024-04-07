@@ -9,6 +9,7 @@ import PokemonType from '@/app/components/PokemonType';
 import Stats from '@/app/components/Stats';
 import Weakness from '@/app/components/Weakness';
 import { Box } from '@mui/material';
+import { notFound } from 'next/navigation';
 
 interface Pokemon {
   name: string;
@@ -17,6 +18,9 @@ interface Pokemon {
 }
 
 const Page = async ({ params: { id } }: { params: { id: string } }) => {
+  if (parseInt(id) < 1 || parseInt(id) > 1025) {
+    notFound();
+  }
   const pokemon: any = await fetchPokeApiData(id);
   const {
     name,

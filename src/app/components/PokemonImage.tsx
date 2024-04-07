@@ -27,7 +27,7 @@ const PokemonImage = ({
   return (
     <img
       style={imageStyles}
-      src={`/images/pokemon-trim-top/poke-${id}.png`}
+      src={`/images/sprites/poke-${id}.png`}
       // src={
       //   src ||
       //   `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`

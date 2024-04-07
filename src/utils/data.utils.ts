@@ -28,6 +28,24 @@ export const fetchImageAndTrim = async (id: string) => {
   return src;
 };
 
+// output images from fetchAndTrimImages to a folder
+export const fetchAndSaveImages = async (ids: string[]) => {
+  try {
+    const imagePromises = ids.map(fetchImageAndTrim);
+    const images = await Promise.all(imagePromises);
+    images.forEach((image, index) => {
+      const base64Data = image.replace(/^data:image\/png;base64,/, '');
+      require('fs').writeFileSync(
+        `./public/images/sprites/poke-${[index + 1]}.png`,
+        base64Data,
+        'base64'
+      );
+    });
+  } catch (error) {
+    console.error('Failed to fetch and save images:', error);
+  }
+};
+
 // Fetch data from an API
 export const fetchPokeApiData = async (pokemonId: string) => {
   try {

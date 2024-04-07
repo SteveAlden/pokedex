@@ -12,40 +12,26 @@ interface Pokemon {
 
 interface PokemonListProps {
   pokemon: Pokemon[];
-  images: string[];
 }
 
 interface PokemonListItemProps {
   poke: { name: string };
   index: number;
-  imageSrc: string;
 }
 
-export const PokemonList: React.FC<PokemonListProps> = ({
-  pokemon,
-  images,
-}) => {
+export const PokemonList: React.FC<PokemonListProps> = ({ pokemon }) => {
   return (
     <DelayedChild>
       <Masonry spacing={1.2} columns={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}>
         {pokemon.map((poke, index) => (
-          <PokemonListItem
-            poke={poke}
-            index={index + 1}
-            key={poke.name}
-            imageSrc={images[index]}
-          />
+          <PokemonListItem poke={poke} index={index + 1} key={poke.name} />
         ))}
       </Masonry>
     </DelayedChild>
   );
 };
 
-const PokemonListItem: React.FC<PokemonListItemProps> = ({
-  poke,
-  index,
-  imageSrc,
-}) => {
+const PokemonListItem: React.FC<PokemonListItemProps> = ({ poke, index }) => {
   return (
     <Link href={`/pokemon/${index}`} key={index}>
       <ImageListItem
@@ -65,7 +51,7 @@ const PokemonListItem: React.FC<PokemonListItemProps> = ({
           },
         }}
       >
-        <PokemonImage id={`${index}`} src={imageSrc} showReflection fullWidth />
+        <PokemonImage id={`${index}`} showReflection fullWidth />
         <ImageListItemBar
           position='below'
           title={

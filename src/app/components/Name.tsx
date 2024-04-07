@@ -15,8 +15,10 @@ const Name: React.FC<NameProps> = ({ name, genus }) => {
         alignItems: 'center',
       }}
     >
-      <Typography variant='h2'>{name?.toUpperCase()}</Typography>
-      <Typography>{genus}</Typography>
+      <Typography variant='h2' sx={{ color: 'rgb(137,137,137)' }}>
+        {name?.toUpperCase()}
+      </Typography>
+      <Typography sx={{ color: 'rgb(137,137,137)' }}>{genus}</Typography>
     </Box>
   );
 };

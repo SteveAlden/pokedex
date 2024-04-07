@@ -94,7 +94,8 @@ export default function CustomizedSelects() {
           return (
             <Link href={`/?generation=${index + 1}`} key={gen}>
               <MenuItem
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation();
                   setSelectedGeneration(gen);
                   handleClose();
                 }}

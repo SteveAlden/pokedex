@@ -2,7 +2,7 @@
 import { Masonry } from '@mui/lab';
 import { ImageListItem, ImageListItemBar, Typography } from '@mui/material';
 import Link from 'next/link';
-import DelayedChild from './DelayedChild';
+import DelayedChild from './wrapper/DelayedChild';
 import PokemonImage from './PokemonImage';
 
 interface Pokemon {

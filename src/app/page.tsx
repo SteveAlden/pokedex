@@ -13,3 +13,9 @@ export default async function Home() {
     </main>
   );
 }
+
+function range(start: number, end: number) {
+  return Array.from({ length: end - start + 1 }, (_, i) =>
+    (start + i).toString()
+  );
+}

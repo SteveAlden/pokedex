@@ -15,4 +15,5 @@ export const POKEMON_GENERATIONS = {
   'Generation VI': { start: 650, end: 721 },
   'Generation VII': { start: 722, end: 809 },
   'Generation VIII': { start: 810, end: 898 },
+  'Generation IX': { start: 899, end: 1025 },
 };

@@ -1,7 +1,6 @@
 import React from 'react';
-import Filled from './wrapper/Filled';
 import { TypeChips } from './TypeChips';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
 interface PokemonTypeProps {
   pokemonType: any[];

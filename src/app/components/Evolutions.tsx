@@ -10,21 +10,11 @@ interface EvolutionProps {
 const Evolutions: React.FC<EvolutionProps> = ({ evolutions }) => {
   return (
     <Filled>
-      <Typography
-        variant='h4'
+      <Typography variant='h4'>Evolutions</Typography>
+      <Box
         sx={{
           padding: '10px',
           display: 'flex',
-          justifyContent: 'center',
-          color: 'rgb(137, 137, 137)',
-        }}
-      >
-        Evolutions
-      </Typography>
-      <Box
-        sx={{
-          display: 'flex',
-          padding: 0,
           flexWrap: 'wrap',
           justifyContent: 'center',
         }}

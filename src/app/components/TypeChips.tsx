@@ -3,8 +3,7 @@ import React from 'react';
 
 interface ChipsProps {
   size: 'small' | 'medium';
-
-  items: any[];
+  items: string[];
 }
 
 export const TypeChips: React.FC<ChipsProps> = ({ size, items }) => {
@@ -16,14 +15,17 @@ export const TypeChips: React.FC<ChipsProps> = ({ size, items }) => {
           size={size}
           label={item}
           color='primary'
-          sx={{ backgroundColor: getChipcolor(item), margin: '5px' }}
+          sx={{
+            backgroundColor: getChipcolor(item as keyof typeof TYPE_COLORS),
+            margin: '5px',
+          }}
         />
       ))}
     </>
   );
 };
 
-const chipColor = {
+const TYPE_COLORS = {
   bug: '#C3D21F',
   dark: '#8E6956',
   dragon: '#8774FF',
@@ -44,6 +46,6 @@ const chipColor = {
   water: '#56AEFF',
 };
 
-const getChipcolor = (pokeType: keyof typeof chipColor) => {
-  return chipColor[pokeType] || null;
+const getChipcolor = (pokeType: keyof typeof TYPE_COLORS) => {
+  return TYPE_COLORS[pokeType] || null;
 };

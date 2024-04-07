@@ -19,6 +19,21 @@ interface PokemonListItemProps {
   index: number;
 }
 
+const listItemStyles = {
+  borderRadius: '10px',
+  padding: '20px 10px 10px 10px',
+  transition: '0.15s',
+  backdropFilter: 'blur(16px) saturate(180%)',
+  '-webkit-backdrop-filter': 'blur(16px) saturate(180%)',
+  backgroundColor: 'rgb(35, 35, 35)',
+  '&:hover': {
+    zIndex: 1,
+    transform: 'scale(1.05)',
+    boxShadow:
+      '0px 5px 10px 5px rgba(232,35,111,255), 0px 5px 10px 5px rgba(108, 28, 107,0.5)',
+  },
+};
+
 export const PokemonList: React.FC<PokemonListProps> = ({ pokemon }) => {
   return (
     <DelayedChild>
@@ -33,24 +48,8 @@ export const PokemonList: React.FC<PokemonListProps> = ({ pokemon }) => {
 
 const PokemonListItem: React.FC<PokemonListItemProps> = ({ poke, index }) => {
   return (
-    <Link href={`/pokemon/${index}`} key={index}>
-      <ImageListItem
-        key={index}
-        sx={{
-          borderRadius: '10px',
-          padding: '20px 10px 10px 10px',
-          transition: '0.15s',
-          backdropFilter: 'blur(16px) saturate(180%)',
-          '-webkit-backdrop-filter': 'blur(16px) saturate(180%)',
-          backgroundColor: 'rgb(35, 35, 35)',
-          '&:hover': {
-            zIndex: 1,
-            transform: 'scale(1.05)',
-            boxShadow:
-              '0px 5px 10px 5px rgba(232,35,111,255), 0px 5px 10px 5px rgba(108, 28, 107,0.5)',
-          },
-        }}
-      >
+    <Link href={`/pokemon/${index}`}>
+      <ImageListItem key={index} sx={listItemStyles}>
         <PokemonImage id={`${index}`} showReflection fullWidth />
         <ImageListItemBar
           position='below'
@@ -62,9 +61,7 @@ const PokemonListItem: React.FC<PokemonListItemProps> = ({ poke, index }) => {
             </Typography>
           }
           style={{ display: 'flex', justifyContent: 'center' }}
-        >
-          {poke.name}
-        </ImageListItemBar>
+        />
       </ImageListItem>
     </Link>
   );

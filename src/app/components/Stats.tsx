@@ -2,7 +2,35 @@ import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import Filled from './wrapper/Filled';
 
-const Stats: React.FC<any> = ({ stats }) => {
+interface Stat {
+  baseStat: number;
+  statName: string;
+}
+
+interface StatsProps {
+  stats: Stat[];
+}
+
+const getStatName = (name: string) => {
+  switch (name) {
+    case 'speed':
+      return 'Speed';
+    case 'attack':
+      return 'Attack';
+    case 'defense':
+      return 'Defence';
+    case 'special-attack':
+      return 'S.Attack';
+    case 'special-defense':
+      return 'S.Defence';
+    case 'hp':
+      return 'Hp';
+    default:
+      return null;
+  }
+};
+
+const Stats: React.FC<StatsProps> = ({ stats }) => {
   return (
     <Filled>
       <Typography
@@ -23,10 +51,10 @@ const Stats: React.FC<any> = ({ stats }) => {
 
 export default Stats;
 
-const StatChart = ({ stats }: any) => {
+const StatChart: React.FC<StatsProps> = ({ stats }) => {
   return (
     <Box sx={{ width: '100%' }}>
-      {stats?.map((stat: any) => {
+      {stats?.map((stat) => {
         let { baseStat, statName } = stat;
         return (
           <Grid
@@ -63,23 +91,4 @@ const StatChart = ({ stats }: any) => {
       })}
     </Box>
   );
-};
-
-const getStatName = (name: string) => {
-  switch (name) {
-    case 'speed':
-      return 'Speed';
-    case 'attack':
-      return 'Attack';
-    case 'defense':
-      return 'Defence';
-    case 'special-attack':
-      return 'S.Attack';
-    case 'special-defense':
-      return 'S.Defence';
-    case 'hp':
-      return 'Hp';
-    default:
-      return null;
-  }
 };

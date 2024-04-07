@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Box, Typography } from '@mui/material';
 import Hollow from './wrapper/Hollow';
 
@@ -12,44 +11,26 @@ interface InfoProps {
 const Info: React.FC<InfoProps> = ({ height, id, weight }) => {
   return (
     <Hollow>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Typography style={{ color: 'rgb(137, 137, 137)' }} variant='h6'>
-          {height} m
-        </Typography>
-        <Typography style={{ color: 'rgb(137, 137, 137)' }}>Height</Typography>
-      </Box>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Typography style={{ color: 'rgb(137, 137, 137)' }} variant='h6'>
-          {id}
-        </Typography>
-        <Typography style={{ color: 'rgb(137, 137, 137)' }}>Number</Typography>
-      </Box>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Typography style={{ color: 'rgb(137, 137, 137)' }} variant='h6'>
-          {weight} kg
-        </Typography>
-        <Typography style={{ color: 'rgb(137, 137, 137)' }}>Weight</Typography>
-      </Box>
+      <Property title='Height' value={`${height} m`} />
+      <Property title='Number' value={id} />
+      <Property title='Weight' value={`${weight} kg`} />
     </Hollow>
   );
 };
 
+const Property: React.FC<{ title: string; value: string }> = ({
+  title,
+  value,
+}) => (
+  <Box
+    sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    }}
+  >
+    <Typography variant='h6'>{value}</Typography>
+    <Typography>{title}</Typography>
+  </Box>
+);
 export default Info;

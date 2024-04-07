@@ -10,9 +10,7 @@ interface DescriptionProps {
 const Description: React.FC<DescriptionProps> = ({ description }) => {
   return (
     <Hollow>
-      <Typography style={{ color: 'rgb(137, 137, 137)' }} variant='h6'>
-        {description}
-      </Typography>
+      <Typography variant='h6'>{description}</Typography>
     </Hollow>
   );
 };

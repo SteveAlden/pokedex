@@ -1,14 +1,25 @@
 import sharp from 'sharp';
 import {
+  POKEMON_GENERATIONS_LIST,
   POKEMON_GITDATA_URL,
   POKE_API_BASE_URL,
   SPRITES_BASE_URL,
 } from '../constants';
 
-export const fetctPokemons = async () => {
-  const res = await fetch(`${POKE_API_BASE_URL}?limit=151`);
+export const fetctPokemons = async (generation: string) => {
+  const gen = parseInt(generation);
+  const url = `${POKE_API_BASE_URL}?limit=1025`;
+  const res = await fetch(url);
   const pokemonData = await res.json();
-  return { pokemon: pokemonData.results };
+  const { start, end } = POKEMON_GENERATIONS_LIST[gen - 1];
+  return {
+    pokemon: pokemonData.results
+      .slice(start - 1, end)
+      .map((pokemon: any, index: any) => ({
+        ...pokemon,
+        id: start + index,
+      })),
+  };
 };
 
 export const fetchAndTrimImages = async (ids: string[]) => {

@@ -1,3 +1,5 @@
+import exp from 'constants';
+
 export const POKEMON_GITDATA_URL =
   'https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json';
 
@@ -17,3 +19,15 @@ export const POKEMON_GENERATIONS = {
   'Generation VIII': { start: 810, end: 898 },
   'Generation IX': { start: 899, end: 1025 },
 };
+
+export const POKEMON_GENERATIONS_LIST: any = [
+  { generation: 'Generation I', start: 1, end: 151 },
+  { generation: 'Generation II', start: 152, end: 251 },
+  { generation: 'Generation III', start: 252, end: 386 },
+  { generation: 'Generation IV', start: 387, end: 493 },
+  { generation: 'Generation V', start: 494, end: 649 },
+  { generation: 'Generation VI', start: 650, end: 721 },
+  { generation: 'Generation VII', start: 722, end: 809 },
+  { generation: 'Generation VIII', start: 810, end: 898 },
+  { generation: 'Generation IX', start: 899, end: 1025 },
+];

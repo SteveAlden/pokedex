@@ -8,6 +8,7 @@ import PokemonImage from './PokemonImage';
 interface Pokemon {
   name: string;
   url: string;
+  id: number;
 }
 
 interface PokemonListProps {
@@ -39,7 +40,7 @@ export const PokemonList: React.FC<PokemonListProps> = ({ pokemon }) => {
     <DelayedChild>
       <Masonry spacing={1.2} columns={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}>
         {pokemon.map((poke, index) => (
-          <PokemonListItem poke={poke} index={index + 1} key={poke.name} />
+          <PokemonListItem poke={poke} index={poke.id} key={poke.name} />
         ))}
       </Masonry>
     </DelayedChild>

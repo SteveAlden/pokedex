@@ -1,14 +1,15 @@
+/* eslint-disable @next/next/no-async-client-component */
 import styles from './page.module.css';
 import { PokemonList } from '@/app/components/PokemonList';
-import {
-  fetchAndSaveImages,
-  fetchAndTrimImages,
-  fetctPokemons,
-} from '@/utils/data.utils';
+import { fetctPokemons } from '@/utils/data.utils';
+import { redirect, useSearchParams } from 'next/navigation';
 
-export default async function Home() {
-  const { pokemon } = await fetctPokemons();
-  const ids = Array.from({ length: 1025 }, (_, i) => (i + 1).toString());
+export default async function Home({ params, searchParams }: any) {
+  const { generation } = searchParams;
+  if (!generation || parseInt(generation) < 1 || parseInt(generation) > 9) {
+    redirect('/?generation=1');
+  }
+  const { pokemon } = await fetctPokemons(generation);
 
   return (
     <main className={styles.main}>

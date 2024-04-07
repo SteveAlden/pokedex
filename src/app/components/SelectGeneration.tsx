@@ -5,6 +5,8 @@ import MenuItem from '@mui/material/MenuItem';
 import { IconButton, Menu, MenuProps } from '@mui/material';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { POKEMON_GENERATIONS } from '@/constants';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -51,8 +53,11 @@ const StyledMenu = styled((props: MenuProps) => (
 const generations = Object.keys(POKEMON_GENERATIONS);
 
 export default function CustomizedSelects() {
+  const params = useSearchParams();
+  const generation = params.get('generation');
+  const generationIndex = parseInt(generation || '1') - 1;
   const [selectedGeneration, setSelectedGeneration] = React.useState(
-    generations[0]
+    generationIndex.toString()
   );
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -85,15 +90,22 @@ export default function CustomizedSelects() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        {generations.map((generation) => (
-          <MenuItem
-            onClick={handleClose}
-            key={generation}
-            selected={generation === selectedGeneration}
-          >
-            {generation}
-          </MenuItem>
-        ))}
+        {generations.map((gen, index) => {
+          return (
+            <Link href={`/?generation=${index + 1}`} key={gen}>
+              <MenuItem
+                onClick={() => {
+                  setSelectedGeneration(gen);
+                  handleClose();
+                }}
+                key={gen}
+                selected={index.toString() === selectedGeneration}
+              >
+                {gen}
+              </MenuItem>
+            </Link>
+          );
+        })}
       </StyledMenu>
     </div>
   );

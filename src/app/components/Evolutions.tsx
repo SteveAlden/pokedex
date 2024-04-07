@@ -5,9 +5,10 @@ import Filled from './wrapper/Filled';
 
 interface EvolutionProps {
   evolutions?: Array<{ id: string; name: string }>;
+  generation: any;
 }
 
-const Evolutions: React.FC<EvolutionProps> = ({ evolutions }) => {
+const Evolutions: React.FC<EvolutionProps> = ({ evolutions, generation }) => {
   return (
     <Filled>
       <Typography variant='h4'>Evolutions</Typography>
@@ -20,7 +21,11 @@ const Evolutions: React.FC<EvolutionProps> = ({ evolutions }) => {
         }}
       >
         {evolutions?.map((evolution) => (
-          <Evolution key={evolution.name} id={evolution.id} />
+          <Evolution
+            key={evolution.name}
+            id={evolution.id}
+            generation={generation}
+          />
         ))}
       </Box>
     </Filled>

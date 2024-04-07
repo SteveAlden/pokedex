@@ -13,11 +13,13 @@ interface Pokemon {
 
 interface PokemonListProps {
   pokemon: Pokemon[];
+  generation: string;
 }
 
 interface PokemonListItemProps {
   poke: { name: string };
   index: number;
+  generation: string;
 }
 
 const listItemStyles = {
@@ -35,21 +37,33 @@ const listItemStyles = {
   },
 };
 
-export const PokemonList: React.FC<PokemonListProps> = ({ pokemon }) => {
+export const PokemonList: React.FC<PokemonListProps> = ({
+  pokemon,
+  generation,
+}) => {
   return (
     <DelayedChild>
       <Masonry spacing={1.2} columns={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}>
         {pokemon.map((poke, index) => (
-          <PokemonListItem poke={poke} index={poke.id} key={poke.name} />
+          <PokemonListItem
+            poke={poke}
+            index={poke.id}
+            key={poke.name}
+            generation={generation}
+          />
         ))}
       </Masonry>
     </DelayedChild>
   );
 };
 
-const PokemonListItem: React.FC<PokemonListItemProps> = ({ poke, index }) => {
+const PokemonListItem: React.FC<PokemonListItemProps> = ({
+  poke,
+  index,
+  generation,
+}) => {
   return (
-    <Link href={`/pokemon/${index}`}>
+    <Link href={`/pokemon/${index}?generation=${generation}`}>
       <ImageListItem key={index} sx={listItemStyles}>
         <PokemonImage id={`${index}`} showReflection fullWidth trimmedImage />
         <ImageListItemBar

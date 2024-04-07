@@ -17,7 +17,15 @@ interface Pokemon {
   weight: number;
 }
 
-const Page = async ({ params: { id } }: { params: { id: string } }) => {
+const Page = async ({
+  params: { id },
+  searchParams,
+}: {
+  params: { id: string };
+  searchParams: any;
+}) => {
+  const { generation } = searchParams;
+
   if (parseInt(id) < 1 || parseInt(id) > 1025) {
     notFound();
   }
@@ -43,7 +51,7 @@ const Page = async ({ params: { id } }: { params: { id: string } }) => {
       <Description description={description} />
       <Weakness weaknesses={weaknesses} />
       <Stats stats={baseStats} />
-      <Evolutions evolutions={evolutions} />
+      <Evolutions evolutions={evolutions} generation={generation} />
     </Box>
   );
 };

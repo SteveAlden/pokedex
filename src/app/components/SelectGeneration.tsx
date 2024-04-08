@@ -71,7 +71,7 @@ export default function CustomizedSelects() {
   };
 
   return (
-    <Suspense fallback={<>Loading</>}>
+    <Suspense>
       <IconButton
         size='large'
         aria-label='account of current user'

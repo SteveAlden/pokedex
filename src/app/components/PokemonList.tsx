@@ -4,6 +4,7 @@ import { ImageListItem, ImageListItemBar, Typography } from '@mui/material';
 import Link from 'next/link';
 import DelayedChild from './wrapper/DelayedChild';
 import PokemonImage from './PokemonImage';
+import { Suspense } from 'react';
 
 interface Pokemon {
   name: string;
@@ -64,20 +65,22 @@ const PokemonListItem: React.FC<PokemonListItemProps> = ({
 }) => {
   return (
     <Link href={`/pokemon/${index}?generation=${generation}`}>
-      <ImageListItem key={index} sx={listItemStyles}>
-        <PokemonImage id={`${index}`} showReflection fullWidth trimmedImage />
-        <ImageListItemBar
-          position='below'
-          title={
-            <Typography
-              sx={{ color: 'rgb(137, 137, 137)', textAlign: 'center' }}
-            >
-              {poke.name?.toUpperCase()}
-            </Typography>
-          }
-          style={{ display: 'flex', justifyContent: 'center' }}
-        />
-      </ImageListItem>
+      <Suspense>
+        <ImageListItem key={index} sx={listItemStyles}>
+          <PokemonImage id={`${index}`} showReflection fullWidth trimmedImage />
+          <ImageListItemBar
+            position='below'
+            title={
+              <Typography
+                sx={{ color: 'rgb(137, 137, 137)', textAlign: 'center' }}
+              >
+                {poke.name?.toUpperCase()}
+              </Typography>
+            }
+            style={{ display: 'flex', justifyContent: 'center' }}
+          />
+        </ImageListItem>
+      </Suspense>
     </Link>
   );
 };

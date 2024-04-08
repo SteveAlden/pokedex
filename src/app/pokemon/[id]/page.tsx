@@ -45,7 +45,7 @@ const Page = async ({
 
   return (
     <Box>
-      <Suspense fallback='Loading...'>
+      <Suspense>
         <PokemonImage id={id} showReflection fullWidth />
         <Name name={name} genus={genus} />
         <PokemonType pokemonType={type} />

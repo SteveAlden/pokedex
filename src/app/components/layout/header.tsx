@@ -30,7 +30,7 @@ export default function Header() {
     >
       <Toolbar>
         <Box sx={{ display: 'flex', flexGrow: 1 }}>
-          <Suspense fallback={<>Loading</>}>
+          <Suspense>
             <Link href={`/?generation=${generation}`}>
               <Box sx={{ display: 'flex', flexGrow: 1 }}>
                 <Image

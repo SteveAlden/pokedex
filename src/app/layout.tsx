@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={myFont.className}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
-            <Suspense fallback='Loading...'>
+            <Suspense>
               <Header />
             </Suspense>
             {children}

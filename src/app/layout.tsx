@@ -5,6 +5,7 @@ import Header from '@/app/components/layout/header';
 import localFont from 'next/font/local';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../theme/theme';
+import { Suspense } from 'react';
 
 const myFont = localFont({
   src: './fonts/Oxanium-Regular.ttf',
@@ -26,7 +27,9 @@ export default function RootLayout({
       <body className={myFont.className}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
-            <Header />
+            <Suspense fallback='Loading...'>
+              <Header />
+            </Suspense>
             {children}
           </ThemeProvider>
         </AppRouterCacheProvider>

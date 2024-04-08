@@ -2,7 +2,7 @@
 import styles from './page.module.css';
 import { PokemonList } from '@/app/components/PokemonList';
 import { fetctPokemons } from '@/utils/data.utils';
-import { redirect, useSearchParams } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 export default async function Home({ params, searchParams }: any) {
   const { generation } = searchParams;

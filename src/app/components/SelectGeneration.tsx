@@ -7,6 +7,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { POKEMON_GENERATIONS } from '@/constants';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -70,7 +71,7 @@ export default function CustomizedSelects() {
   };
 
   return (
-    <div>
+    <Suspense fallback={<>Loading</>}>
       <IconButton
         size='large'
         aria-label='account of current user'
@@ -108,6 +109,6 @@ export default function CustomizedSelects() {
           );
         })}
       </StyledMenu>
-    </div>
+    </Suspense>
   );
 }

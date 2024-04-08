@@ -10,6 +10,7 @@ import Stats from '@/app/components/Stats';
 import Weakness from '@/app/components/Weakness';
 import { Box } from '@mui/material';
 import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 
 interface Pokemon {
   name: string;
@@ -44,14 +45,16 @@ const Page = async ({
 
   return (
     <Box>
-      <PokemonImage id={id} showReflection fullWidth />
-      <Name name={name} genus={genus} />
-      <PokemonType pokemonType={type} />
-      <Info height={height} id={id} weight={weight} />
-      <Description description={description} />
-      <Weakness weaknesses={weaknesses} />
-      <Stats stats={baseStats} />
-      <Evolutions evolutions={evolutions} generation={generation} />
+      <Suspense fallback='Loading...'>
+        <PokemonImage id={id} showReflection fullWidth />
+        <Name name={name} genus={genus} />
+        <PokemonType pokemonType={type} />
+        <Info height={height} id={id} weight={weight} />
+        <Description description={description} />
+        <Weakness weaknesses={weaknesses} />
+        <Stats stats={baseStats} />
+        <Evolutions evolutions={evolutions} generation={generation} />
+      </Suspense>
     </Box>
   );
 };

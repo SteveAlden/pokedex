@@ -23,7 +23,19 @@ function DelayedChild(props: { children: ReactNode }) {
             </Box>
           );
         } else {
-          return <Box sx={{ visibility: 'visible' }}>{props.children}</Box>;
+          return (
+            <Box
+              id='delayed-child'
+              sx={{
+                visibility: 'visible',
+                alignItems: 'center',
+                justifyContent: 'center',
+                display: 'flex',
+              }}
+            >
+              {props.children}
+            </Box>
+          );
         }
       })()}
     </>

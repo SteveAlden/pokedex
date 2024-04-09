@@ -28,7 +28,7 @@ const Name: React.FC<NameProps> = ({
         alignItems: 'center',
       }}
     >
-      <IconButton disabled={!previousId}>
+      <IconButton>
         <Link href={`/pokemon/${previousId}?generation=${generation}`}>
           <ArrowBackIosNewIcon
             sx={{ color: 'rgb(137,137,137)' }}
@@ -50,7 +50,7 @@ const Name: React.FC<NameProps> = ({
         </Typography>
         <Typography sx={{ color: 'rgb(137,137,137)' }}>{genus}</Typography>
       </Box>
-      <IconButton disabled={!nextId}>
+      <IconButton>
         <Link href={`/pokemon/${nextId}?generation=${generation}`}>
           <ArrowForwardIosIcon
             sx={{ color: 'rgb(137,137,137)' }}

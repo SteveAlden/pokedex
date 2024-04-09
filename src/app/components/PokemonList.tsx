@@ -1,6 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import { Masonry } from '@mui/lab';
-import { ImageListItem, ImageListItemBar, Typography } from '@mui/material';
+import {
+  Grow,
+  ImageListItem,
+  ImageListItemBar,
+  Typography,
+} from '@mui/material';
 import Link from 'next/link';
 import DelayedChild from './wrapper/DelayedChild';
 import PokemonImage from './PokemonImage';
@@ -43,7 +48,7 @@ export const PokemonList: React.FC<PokemonListProps> = ({
   generation,
 }) => {
   return (
-    <DelayedChild>
+    <Grow in style={{ transitionDelay: '0.01ms' }} timeout={800}>
       <Masonry spacing={1.6} columns={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}>
         {pokemon.map((poke, index) => (
           <PokemonListItem
@@ -54,7 +59,7 @@ export const PokemonList: React.FC<PokemonListProps> = ({
           />
         ))}
       </Masonry>
-    </DelayedChild>
+    </Grow>
   );
 };
 

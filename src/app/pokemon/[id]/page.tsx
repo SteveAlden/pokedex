@@ -26,10 +26,18 @@ const Page = async ({
   searchParams: any;
 }) => {
   const { generation } = searchParams;
-
-  if (parseInt(id) < 1 || parseInt(id) > 1025) {
+  const currentId = parseInt(id);
+  let nextId, previousId;
+  if (currentId < 1 || currentId > 1025 || isNaN(currentId)) {
     notFound();
   }
+  if (currentId !== 1025) {
+    nextId = currentId + 1;
+  }
+  if (currentId !== 1) {
+    previousId = currentId - 1;
+  }
+
   const pokemon: any = await fetchPokeApiData(id);
   const {
     name,
@@ -47,7 +55,13 @@ const Page = async ({
     <Box>
       <Suspense>
         <PokemonImage id={id} showReflection fullWidth />
-        <Name name={name} genus={genus} />
+        <Name
+          name={name}
+          genus={genus}
+          nextId={nextId}
+          previousId={previousId}
+          generation={generation}
+        />
         <PokemonType pokemonType={type} />
         <Info height={height} id={id} weight={weight} />
         <Description description={description} />

@@ -8,7 +8,7 @@ import PokemonImage from '@/app/components/PokemonImage';
 import PokemonType from '@/app/components/PokemonType';
 import Stats from '@/app/components/Stats';
 import Weakness from '@/app/components/Weakness';
-import { Box } from '@mui/material';
+import { Box, Zoom } from '@mui/material';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
@@ -54,7 +54,9 @@ const Page = async ({
   return (
     <Box>
       <Suspense>
-        <PokemonImage id={id} showReflection fullWidth />
+        <Zoom in style={{ transitionDelay: '0.01ms' }}>
+          <PokemonImage id={id} showReflection fullWidth />
+        </Zoom>
         <Name
           name={name}
           genus={genus}

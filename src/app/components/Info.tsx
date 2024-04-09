@@ -29,7 +29,7 @@ const Property: React.FC<{ title: string; value: string }> = ({
       alignItems: 'center',
     }}
   >
-    <Typography variant='h6'>{value}</Typography>
+    <Typography variant='h5'>{value}</Typography>
     <Typography>{title}</Typography>
   </Box>
 );

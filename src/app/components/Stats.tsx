@@ -76,7 +76,7 @@ const StatChart: React.FC<StatsProps> = ({ stats }) => {
                   height: '20px',
                   backgroundColor: 'rgb(25, 25, 25)',
                   borderRadius: '12px',
-                  width: baseStat + '%',
+                  width: Math.min(baseStat, 100) + '%',
                   backgroundImage:
                     'linear-gradient(to right, rgb(25, 25, 25) 0%, rgba(239,9,105,1) 100%',
                 }}

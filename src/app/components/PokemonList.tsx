@@ -48,7 +48,7 @@ export const PokemonList: React.FC<PokemonListProps> = ({
   generation,
 }) => {
   return (
-    <Grow in timeout={500}>
+    <Grow in timeout={800}>
       <Masonry spacing={1.6} columns={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}>
         {pokemon.map((poke, index) => (
           <PokemonListItem

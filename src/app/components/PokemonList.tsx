@@ -44,7 +44,7 @@ export const PokemonList: React.FC<PokemonListProps> = ({
 }) => {
   return (
     <DelayedChild>
-      <Masonry spacing={1.2} columns={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}>
+      <Masonry spacing={1.6} columns={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}>
         {pokemon.map((poke, index) => (
           <PokemonListItem
             poke={poke}

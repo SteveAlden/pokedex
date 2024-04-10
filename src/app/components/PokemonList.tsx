@@ -32,13 +32,16 @@ const listItemStyles = {
   padding: '20px 10px 10px 10px',
   transition: '0.15s',
   backdropFilter: 'blur(16px) saturate(180%)',
-  '-webkit-backdrop-filter': 'blur(16px) saturate(180%)',
+  webkitbackdropFilter: 'blur(16px) saturate(180%)',
   backgroundColor: 'rgb(35, 35, 35)',
   '&:hover': {
     zIndex: 1,
     transform: 'scale(1.05)',
     boxShadow:
       '0px 5px 10px 5px rgba(232,35,111,255), 0px 5px 10px 5px rgba(108, 28, 107,0.5)',
+  },
+  '&:active': {
+    transform: 'scale(0.95)',
   },
 };
 

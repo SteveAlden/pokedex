@@ -22,6 +22,9 @@ const styles = {
     transform: 'scale(1.07)',
     boxShadow: '0px 5px 15px 5px rgb(239, 9, 105)',
   },
+  '&:active': {
+    transform: 'scale(0.95)',
+  },
 };
 const Evolution: React.FC<EvolutionProps> = ({ id, generation }) => {
   return (

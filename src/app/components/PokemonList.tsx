@@ -7,7 +7,6 @@ import {
   Typography,
 } from '@mui/material';
 import Link from 'next/link';
-import DelayedChild from './wrapper/DelayedChild';
 import PokemonImage from './PokemonImage';
 import { Suspense } from 'react';
 

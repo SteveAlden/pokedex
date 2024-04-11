@@ -8,7 +8,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
 
 export default function Header() {
   const pathname = usePathname();
-  const generation = useSearchParams().get('generation') || '1';
+  const generation = useSearchParams().get('generation') ?? '1';
   const [showGenerationSelector, setShowGenerationSelector] = useState(
     pathname === '/'
   );

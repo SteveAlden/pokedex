@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
-import React from 'react';
 
 const NotFoundPage = () => {
   return (

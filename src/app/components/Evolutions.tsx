@@ -1,4 +1,3 @@
-import React from 'react';
 import Evolution from './Evolution';
 import { Box, Typography } from '@mui/material';
 import Filled from './wrapper/Filled';

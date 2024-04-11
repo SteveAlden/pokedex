@@ -1,4 +1,3 @@
-import React from 'react';
 import { TypeChips } from './TypeChips';
 import { Box } from '@mui/material';
 

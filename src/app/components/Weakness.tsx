@@ -1,4 +1,3 @@
-import React from 'react';
 import Filled from './wrapper/Filled';
 import { TypeChips } from './TypeChips';
 import { Box, Typography } from '@mui/material';

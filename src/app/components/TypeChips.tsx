@@ -1,5 +1,4 @@
 import { Chip, Typography } from '@mui/material';
-import React from 'react';
 
 interface ChipsProps {
   size: 'small' | 'medium';

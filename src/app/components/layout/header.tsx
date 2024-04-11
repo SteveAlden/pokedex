@@ -1,7 +1,7 @@
 'use client';
 /* eslint-disable @next/next/no-img-element */
 // generate a header component
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';

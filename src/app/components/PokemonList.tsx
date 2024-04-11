@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Masonry } from '@mui/lab';
 import {
-  Fade,
   Grow,
   ImageListItem,
   ImageListItemBar,

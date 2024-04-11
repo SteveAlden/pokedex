@@ -1,5 +1,4 @@
 'use client';
-import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import MenuItem from '@mui/material/MenuItem';
 import { IconButton, Menu, MenuProps } from '@mui/material';
@@ -7,7 +6,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { POKEMON_GENERATIONS } from '@/constants';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -57,10 +56,10 @@ export default function CustomizedSelects() {
   const params = useSearchParams();
   const generation = params.get('generation');
   const generationIndex = parseInt(generation || '1') - 1;
-  const [selectedGeneration, setSelectedGeneration] = React.useState(
+  const [selectedGeneration, setSelectedGeneration] = useState(
     generationIndex.toString()
   );
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);

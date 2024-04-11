@@ -3,7 +3,6 @@
 /* eslint-disable @next/next/no-async-client-component */
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
-import React from 'react';
 import ImageDimensions from '../../data/sprite-dimensions.json';
 interface PokemonImageProps {
   id: string;

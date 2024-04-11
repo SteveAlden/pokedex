@@ -33,9 +33,9 @@ const PokemonImage: React.FC<PokemonImageProps> = ({
 }) => {
   const imageStyles = getImageStyles(fullWidth, showReflection);
   const imageSrc = `/images/${trimmedImage ? 'sprites-trimmed' : 'sprites'}/poke-${id}.png`;
-  const dimension = ImageDimensions[id as any];
-  const height = trimmedImage ? dimension.height : 512;
-  const width = trimmedImage ? dimension.width : 512;
+  const dimension = ImageDimensions[(parseInt(id) - 1) as any];
+  const height = trimmedImage ? dimension?.height || 512 : 512;
+  const width = trimmedImage ? dimension?.width || 512 : 512;
 
   return (
     <Image
@@ -44,7 +44,7 @@ const PokemonImage: React.FC<PokemonImageProps> = ({
       height={height}
       width={width}
       alt={`pokemon ${id}`}
-      objectFit='fill'
+      // objectFit='fill'
       priority
     />
   );

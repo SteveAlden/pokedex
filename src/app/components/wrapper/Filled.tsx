@@ -9,7 +9,7 @@ const paperStyles = {
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  boxShadow: '0px 5px 10px 0px rgba(0, 0, 0, 0.4)',
+  boxShadow: 'none',
   padding: '2vh 5vw 2vh 5vw',
   marginTop: '20px',
   marginBottom: '20px',

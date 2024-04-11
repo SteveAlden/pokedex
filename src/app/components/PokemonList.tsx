@@ -31,8 +31,6 @@ const listItemStyles = {
   borderRadius: '10px',
   padding: '20px 10px 10px 10px',
   transition: '0.15s',
-  backdropFilter: 'blur(16px) saturate(180%)',
-  webkitbackdropFilter: 'blur(16px) saturate(180%)',
   backgroundColor: 'rgb(35, 35, 35)',
   '&:hover': {
     zIndex: 1,

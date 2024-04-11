@@ -7,7 +7,7 @@ const paperStyles = {
   borderRadius: '32px',
   border: '5px solid rgb(25, 25, 25)',
   backgroundColor: 'rgb(20, 20, 20)',
-  boxShadow: '0px 5px 10px 0px rgba(0, 0, 0, 0.4)',
+  boxShadow: 'none',
   display: 'flex',
   justifyContent: 'space-between',
   marginTop: '20px',

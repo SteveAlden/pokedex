@@ -19,7 +19,7 @@ const Weakness: React.FC<WeaknessProps> = ({ weaknesses }) => {
           justifyContent: 'center',
         }}
       >
-        <TypeChips size='small' items={weaknesses} />
+        <TypeChips size='medium' items={weaknesses} />
       </Box>
     </Filled>
   );

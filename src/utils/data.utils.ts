@@ -91,10 +91,10 @@ export const fetchPokeApiData = async (pokemonId: string) => {
       baseStat: stat?.base_stat,
     }));
 
-    const description = speciesData.flavor_text_entries?.find(
-      (text: any) =>
-        text?.language?.name === 'en' && text?.version?.name === 'omega-ruby'
-    )?.flavor_text;
+    const descriptions = speciesData.flavor_text_entries?.filter(
+      (text: any) => text?.language?.name === 'en'
+    );
+    const description = descriptions.pop()?.flavor_text;
 
     const genus = speciesData.genera?.find(
       (g: any) => g?.language?.name === 'en'

@@ -9,7 +9,7 @@ interface EvolutionProps {
   generation: any;
 }
 const styles = {
-  transition: 'transform 0.1s',
+  transition: 'transform 0.15s',
   padding: '5px',
   borderRadius: '50%',
   margin: '5px',
@@ -19,7 +19,7 @@ const styles = {
   border: '5px solid rgb(20, 20, 20)',
   ':hover': {
     zIndex: 2,
-    transform: 'scale(1.07)',
+    transform: 'scale(1.1)',
     boxShadow: '0px 5px 15px 5px rgb(239, 9, 105)',
   },
   '&:active': {

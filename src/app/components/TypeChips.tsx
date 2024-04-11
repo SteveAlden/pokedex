@@ -1,4 +1,4 @@
-import { Chip } from '@mui/material';
+import { Chip, Typography } from '@mui/material';
 import React from 'react';
 
 interface ChipsProps {
@@ -13,7 +13,11 @@ export const TypeChips: React.FC<ChipsProps> = ({ size, items }) => {
         <Chip
           key={item}
           size={size}
-          label={item?.charAt(0)?.toUpperCase() + item?.slice(1)}
+          label={
+            <Typography>
+              {item?.charAt(0)?.toUpperCase() + item?.slice(1)}
+            </Typography>
+          }
           color='primary'
           sx={{
             backgroundColor: getChipcolor(item as keyof typeof TYPE_COLORS),

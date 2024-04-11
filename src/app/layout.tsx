@@ -7,6 +7,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from '../theme/theme';
 import { Suspense } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const myFont = localFont({
   src: './fonts/Oxanium-Regular.ttf',
@@ -33,6 +34,7 @@ export default function RootLayout({
             </Suspense>
             {children}
             <Analytics />
+            <SpeedInsights />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

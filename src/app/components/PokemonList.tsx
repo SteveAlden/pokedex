@@ -28,7 +28,7 @@ interface PokemonListItemProps {
 }
 
 const listItemStyles = {
-  borderRadius: '32px',
+  borderRadius: '20px',
   padding: '20px 10px 10px 10px',
   transition: '0.15s',
   backgroundColor: 'rgb(35, 35, 35)',

@@ -1,5 +1,3 @@
-import exp from 'constants';
-
 export const POKEMON_GITDATA_URL =
   'https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json';
 

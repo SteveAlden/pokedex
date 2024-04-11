@@ -1,7 +1,3 @@
-/* eslint-disable @next/next/no-async-client-component */
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable @next/next/no-async-client-component */
-/* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
 import ImageDimensions from '../../data/sprite-dimensions.json';
 interface PokemonImageProps {
@@ -43,7 +39,6 @@ const PokemonImage: React.FC<PokemonImageProps> = ({
       height={height}
       width={width}
       alt={`pokemon ${id}`}
-      // objectFit='fill'
       priority
     />
   );

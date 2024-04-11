@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import { Box, Typography } from '@mui/material';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const NotFoundPage = () => {
@@ -13,9 +13,15 @@ const NotFoundPage = () => {
         height: '100vh',
       }}
     >
-      <img width='80%' alt='404_notfound' src={`/images/404_notfound.png`} />
+      <Image
+        alt='404_notfound'
+        width={1600}
+        height={444}
+        src={`/images/404_notfound.png`}
+        objectFit='contain'
+      />
       <Typography variant='h2'>Uh-oh!</Typography>
-      <Typography variant='h4'>You look lost on your journey!</Typography>
+      <Typography variant='h5'>You look lost on your journey!</Typography>
       <Link href='/'>
         <Typography variant='h6'>{'\u2190'} Go back home</Typography>
       </Link>

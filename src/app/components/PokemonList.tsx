@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { Masonry } from '@mui/lab';
 import {
   Grow,

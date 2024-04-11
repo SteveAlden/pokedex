@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-async-client-component */
 import styles from './page.module.css';
 import { PokemonList } from '@/app/components/PokemonList';
 import { fetctPokemons } from '@/utils/data.utils';

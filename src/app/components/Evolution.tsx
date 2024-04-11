@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { Box } from '@mui/material';
 import Link from 'next/link';
 import PokemonImage from './PokemonImage';

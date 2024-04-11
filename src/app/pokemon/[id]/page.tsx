@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import Evolutions from '@/app/components/Evolutions';
 import { fetchEvolutions, fetchPokeApiData } from '@/utils/data.utils';
 import Description from '@/app/components/Description';

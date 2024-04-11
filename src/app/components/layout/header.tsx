@@ -33,14 +33,12 @@ export default function Header() {
           <Link href={`/?generation=${generation}`}>
             <Box sx={{ display: 'flex', flexGrow: 1 }}>
               <Image
-                alt=''
+                alt='pokemon-logo'
                 src='/images/ball-master.png'
                 width={35}
                 height={35}
               />
-              <Typography variant='h5' sx={{}}>
-                Pokédex
-              </Typography>
+              <Typography variant='h5'>Pokédex</Typography>
             </Box>
           </Link>
         </Box>

@@ -2,8 +2,9 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @next/next/no-async-client-component */
 /* eslint-disable @next/next/no-img-element */
+import Image from 'next/image';
 import React from 'react';
-
+import ImageDimensions from '../../data/sprite-dimensions.json';
 interface PokemonImageProps {
   id: string;
   showReflection?: boolean;
@@ -31,12 +32,19 @@ const PokemonImage: React.FC<PokemonImageProps> = ({
   trimmedImage,
 }) => {
   const imageStyles = getImageStyles(fullWidth, showReflection);
+  const imageSrc = `/images/${trimmedImage ? 'sprites-trimmed' : 'sprites'}/poke-${id}.png`;
+  const dimension = ImageDimensions[id as any];
+  const height = trimmedImage ? dimension.height : 512;
+  const width = trimmedImage ? dimension.width : 512;
 
   return (
-    <img
+    <Image
+      src={imageSrc}
       style={imageStyles}
-      src={`/images/${trimmedImage ? 'sprites-trimmed' : 'sprites'}/poke-${id}.png`}
+      height={height}
+      width={width}
       alt={`pokemon ${id}`}
+      objectFit='contain'
     />
   );
 };

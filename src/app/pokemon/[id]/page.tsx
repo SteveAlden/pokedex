@@ -52,7 +52,7 @@ const Page = async ({
 
   return (
     <Box>
-      <Zoom in style={{ transitionDelay: '0.1ms' }}>
+      <Zoom in style={{ transitionDelay: '1ms' }}>
         <PokemonImage id={id} showReflection fullWidth />
       </Zoom>
       <Name

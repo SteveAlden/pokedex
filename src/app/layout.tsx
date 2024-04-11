@@ -6,6 +6,7 @@ import localFont from 'next/font/local';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../theme/theme';
 import { Suspense } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 
 const myFont = localFont({
   src: './fonts/Oxanium-Regular.ttf',
@@ -31,6 +32,7 @@ export default function RootLayout({
               <Header />
             </Suspense>
             {children}
+            <Analytics />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

@@ -44,7 +44,8 @@ const PokemonImage: React.FC<PokemonImageProps> = ({
       height={height}
       width={width}
       alt={`pokemon ${id}`}
-      objectFit='contain'
+      objectFit='fill'
+      priority
     />
   );
 };

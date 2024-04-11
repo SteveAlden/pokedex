@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Masonry } from '@mui/lab';
 import {
+  Fade,
   Grow,
   ImageListItem,
   ImageListItemBar,
@@ -22,7 +23,7 @@ interface PokemonListProps {
 
 interface PokemonListItemProps {
   poke: { name: string };
-  index: number;
+  id: number;
   generation: string;
 }
 
@@ -51,10 +52,10 @@ export const PokemonList: React.FC<PokemonListProps> = ({
   return (
     <Grow in style={{ transitionDelay: '1ms' }} timeout={800}>
       <Masonry spacing={1.6} columns={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}>
-        {pokemon.map((poke, index) => (
+        {pokemon.map((poke) => (
           <PokemonListItem
             poke={poke}
-            index={poke.id}
+            id={poke.id}
             key={poke.name}
             generation={generation}
           />
@@ -66,13 +67,13 @@ export const PokemonList: React.FC<PokemonListProps> = ({
 
 const PokemonListItem: React.FC<PokemonListItemProps> = ({
   poke,
-  index,
+  id,
   generation,
 }) => {
   return (
-    <Link href={`/pokemon/${index}?generation=${generation}`}>
-      <ImageListItem key={index} sx={listItemStyles}>
-        <PokemonImage id={`${index}`} showReflection fullWidth trimmedImage />
+    <Link href={`/pokemon/${id}?generation=${generation}`}>
+      <ImageListItem key={id} sx={listItemStyles}>
+        <PokemonImage id={`${id}`} showReflection fullWidth trimmedImage />
         <ImageListItemBar
           position='below'
           title={

@@ -10,7 +10,6 @@ import Stats from '@/app/components/Stats';
 import Weakness from '@/app/components/Weakness';
 import { Box, Zoom } from '@mui/material';
 import { notFound } from 'next/navigation';
-import { Suspense } from 'react';
 
 interface Pokemon {
   name: string;
@@ -53,24 +52,22 @@ const Page = async ({
 
   return (
     <Box>
-      <Suspense>
-        <Zoom in style={{ transitionDelay: '0.01ms' }}>
-          <PokemonImage id={id} showReflection fullWidth />
-        </Zoom>
-        <Name
-          name={name}
-          genus={genus}
-          nextId={nextId}
-          previousId={previousId}
-          generation={generation}
-        />
-        <PokemonType pokemonType={type} />
-        <Info height={height} id={id} weight={weight} />
-        <Description description={description} />
-        <Weakness weaknesses={weaknesses} />
-        <Stats stats={baseStats} />
-        <Evolutions evolutions={evolutions} generation={generation} />
-      </Suspense>
+      <Zoom in style={{ transitionDelay: '0.1ms' }}>
+        <PokemonImage id={id} showReflection fullWidth />
+      </Zoom>
+      <Name
+        name={name}
+        genus={genus}
+        nextId={nextId}
+        previousId={previousId}
+        generation={generation}
+      />
+      <PokemonType pokemonType={type} />
+      <Info height={height} id={id} weight={weight} />
+      <Description description={description} />
+      <Weakness weaknesses={weaknesses} />
+      <Stats stats={baseStats} />
+      <Evolutions evolutions={evolutions} generation={generation} />
     </Box>
   );
 };

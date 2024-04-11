@@ -1,7 +1,7 @@
 'use client';
 /* eslint-disable @next/next/no-img-element */
 // generate a header component
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -30,21 +30,19 @@ export default function Header() {
     >
       <Toolbar>
         <Box sx={{ display: 'flex', flexGrow: 1 }}>
-          <Suspense>
-            <Link href={`/?generation=${generation}`}>
-              <Box sx={{ display: 'flex', flexGrow: 1 }}>
-                <Image
-                  alt=''
-                  src='/images/ball-master.png'
-                  width={35}
-                  height={35}
-                />
-                <Typography variant='h5' sx={{}}>
-                  Pokédex
-                </Typography>
-              </Box>
-            </Link>
-          </Suspense>
+          <Link href={`/?generation=${generation}`}>
+            <Box sx={{ display: 'flex', flexGrow: 1 }}>
+              <Image
+                alt=''
+                src='/images/ball-master.png'
+                width={35}
+                height={35}
+              />
+              <Typography variant='h5' sx={{}}>
+                Pokédex
+              </Typography>
+            </Box>
+          </Link>
         </Box>
         {showGenerationSelector && <CustomizedSelects />}
       </Toolbar>

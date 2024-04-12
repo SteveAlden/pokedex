@@ -65,24 +65,19 @@ const StatChart: React.FC<StatsProps> = ({ stats }) => {
             sx={{ alignItems: 'center', padding: '10px' }}
           >
             <Grid xs={6} md={4}>
-              <Typography style={{ color: 'rgb(137, 137, 137)' }} variant='h6'>
-                {getStatName(statName)}
-              </Typography>
+              <Typography variant='h6'>{getStatName(statName)}</Typography>
             </Grid>
             <Grid xs={10} md={12}>
               <Box
                 style={{
                   height: '20px',
-                  backgroundColor: 'rgb(25, 25, 25)',
                   borderRadius: '12px',
                   width: Math.min(baseStat, 100) + '%',
                   backgroundImage:
                     'linear-gradient(to right, rgb(25, 25, 25) 0%, rgba(239,9,105,1) 100%',
                 }}
               >
-                <Typography style={{ color: 'rgb(137, 137, 137)' }}>
-                  {baseStat}
-                </Typography>
+                <Typography>{baseStat}</Typography>
               </Box>
             </Grid>
           </Grid>

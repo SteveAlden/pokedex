@@ -30,7 +30,9 @@ const listItemStyles = {
   padding: '20px 10px 10px 10px',
   transition: '0.15s',
   backgroundColor: 'rgb(30, 30, 30)',
+  position: 'relative',
   '&:hover': {
+    zIndex: 1,
     transform: 'scale(1.05)',
     boxShadow:
       '0px 5px 10px 5px rgba(232,35,111,255), 0px 5px 10px 5px rgba(108, 28, 107,0.5)',

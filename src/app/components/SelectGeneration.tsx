@@ -52,9 +52,11 @@ const StyledMenu = styled((props: MenuProps) => (
 }));
 const generations = Object.keys(POKEMON_GENERATIONS);
 
-export default function CustomizedSelects() {
-  const params = useSearchParams();
-  const generation = params.get('generation');
+export default function CustomizedSelects({
+  generation,
+}: {
+  generation: string;
+}) {
   const generationIndex = parseInt(generation || '1') - 1;
   const [selectedGeneration, setSelectedGeneration] = useState(
     generationIndex.toString()

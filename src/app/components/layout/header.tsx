@@ -8,7 +8,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
 
 export default function Header() {
   const pathname = usePathname();
-  // const generation = useSearchParams().get('generation') ?? '1';
+  const generation = useSearchParams().get('generation') ?? '1';
   const [showGenerationSelector, setShowGenerationSelector] = useState(
     pathname === '/'
   );
@@ -28,7 +28,7 @@ export default function Header() {
     >
       <Toolbar>
         <Box sx={{ display: 'flex', flexGrow: 1 }}>
-          <Link href={`/`}>
+          <Link href={`/?generation=${generation}`}>
             <Box sx={{ display: 'flex', flexGrow: 1 }}>
               <Image
                 alt='pokemon-logo'
@@ -40,7 +40,9 @@ export default function Header() {
             </Box>
           </Link>
         </Box>
-        {showGenerationSelector && <CustomizedSelects />}
+        {showGenerationSelector && (
+          <CustomizedSelects generation={generation} />
+        )}
       </Toolbar>
     </AppBar>
   );

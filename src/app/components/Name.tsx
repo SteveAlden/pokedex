@@ -8,16 +8,9 @@ interface NameProps {
   genus: string;
   nextId?: number;
   previousId?: number;
-  generation?: string;
 }
 
-const Name: React.FC<NameProps> = ({
-  name,
-  genus,
-  nextId,
-  previousId,
-  generation,
-}) => {
+const Name: React.FC<NameProps> = ({ name, genus, nextId, previousId }) => {
   return (
     <Box
       sx={{
@@ -27,7 +20,7 @@ const Name: React.FC<NameProps> = ({
       }}
     >
       <IconButton>
-        <Link href={`/pokemon/${previousId}?generation=${generation}`}>
+        <Link href={`/pokemon/${previousId}`}>
           <ArrowBackIosNewIcon
             sx={{ color: 'rgb(137,137,137)' }}
             fontSize='large'
@@ -49,7 +42,7 @@ const Name: React.FC<NameProps> = ({
         <Typography sx={{ color: 'rgb(137,137,137)' }}>{genus}</Typography>
       </Box>
       <IconButton>
-        <Link href={`/pokemon/${nextId}?generation=${generation}`}>
+        <Link href={`/pokemon/${nextId}`}>
           <ArrowForwardIosIcon
             sx={{ color: 'rgb(137,137,137)' }}
             fontSize='large'

@@ -16,16 +16,10 @@ interface Pokemon {
   weight: number;
 }
 
-const Page = async ({
-  params: { id },
-  searchParams,
-}: {
-  params: { id: string };
-  searchParams: any;
-}) => {
-  const { generation } = searchParams;
+const Page = async ({ params: { id } }: { params: { id: string } }) => {
   const currentId = parseInt(id);
   let nextId, previousId;
+
   if (currentId < 1 || currentId > 1025 || isNaN(currentId)) {
     notFound();
   }
@@ -54,19 +48,13 @@ const Page = async ({
       <Zoom in style={{ transitionDelay: '1ms' }}>
         <PokemonImage id={id} showReflection fullWidth />
       </Zoom>
-      <Name
-        name={name}
-        genus={genus}
-        nextId={nextId}
-        previousId={previousId}
-        generation={generation}
-      />
+      <Name name={name} genus={genus} nextId={nextId} previousId={previousId} />
       <PokemonType pokemonType={type} />
       <Info height={height} id={id} weight={weight} />
       <Description description={description} />
       <Weakness weaknesses={weaknesses} />
       <Stats stats={baseStats} />
-      <Evolutions evolutions={evolutions} generation={generation} />
+      <Evolutions evolutions={evolutions} />
     </Box>
   );
 };

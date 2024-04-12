@@ -12,7 +12,7 @@ export default async function Home({ searchParams }: any) {
 
   return (
     <main className={styles.main}>
-      <PokemonList pokemon={pokemon} generation={generation} />
+      <PokemonList pokemon={pokemon} />
     </main>
   );
 }

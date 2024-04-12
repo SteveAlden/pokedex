@@ -4,7 +4,6 @@ import PokemonImage from './PokemonImage';
 
 interface EvolutionProps {
   id: string;
-  generation: any;
 }
 const styles = {
   transition: 'transform 0.15s',
@@ -24,9 +23,9 @@ const styles = {
     transform: 'scale(0.95)',
   },
 };
-const Evolution: React.FC<EvolutionProps> = ({ id, generation }) => {
+const Evolution: React.FC<EvolutionProps> = ({ id }) => {
   return (
-    <Link href={`/pokemon/${id}?generation=${generation}`}>
+    <Link href={`/pokemon/${id}`}>
       <Box sx={styles}>
         <PokemonImage id={id} fullWidth />
       </Box>

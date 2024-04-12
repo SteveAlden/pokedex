@@ -72,3 +72,10 @@ const Page = async ({
 };
 
 export default Page;
+
+export async function generateStaticParams() {
+  const numbers = Array.from({ length: 1025 }, (_, index) => index + 1);
+  return numbers.map((number) => ({
+    slug: number.toString(),
+  }));
+}

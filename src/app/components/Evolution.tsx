@@ -27,7 +27,7 @@ const Evolution: React.FC<EvolutionProps> = ({ id }) => {
   return (
     <Link href={`/pokemon/${id}`}>
       <Box sx={styles}>
-        <PokemonImage id={id} fullWidth />
+        <PokemonImage id={id} fullWidth quality={5} />
       </Box>
     </Link>
   );

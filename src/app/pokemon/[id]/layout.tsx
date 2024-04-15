@@ -1,6 +1,6 @@
 import { Container } from '@mui/material';
 
-export default function RPokemonLayout({
+export default function PokemonLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

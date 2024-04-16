@@ -56,13 +56,7 @@ const PokemonListItem: React.FC<PokemonListItemProps> = ({ poke, id }) => {
   return (
     <Link href={`/pokemon/${id}`}>
       <ImageListItem key={id} sx={listItemStyles}>
-        <PokemonImage
-          id={`${id}`}
-          showReflection
-          fullWidth
-          trimmedImage
-          quality={80}
-        />
+        <PokemonImage id={`${id}`} showReflection fullWidth trimmedImage />
         <ImageListItemBar
           position='below'
           title={

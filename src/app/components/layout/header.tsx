@@ -10,11 +10,11 @@ export default function Header() {
   const pathname = usePathname();
   const generation = useSearchParams().get('generation') ?? '1';
   const [showGenerationSelector, setShowGenerationSelector] = useState(
-    pathname === '/'
+    pathname === '/home'
   );
 
   useEffect(() => {
-    setShowGenerationSelector(pathname === '/');
+    setShowGenerationSelector(pathname === '/home');
   }, [pathname]);
 
   return (

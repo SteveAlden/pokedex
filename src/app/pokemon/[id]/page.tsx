@@ -10,24 +10,20 @@ import Weakness from '@/app/components/Weakness';
 import { Box, Zoom } from '@mui/material';
 import { notFound } from 'next/navigation';
 
-interface Pokemon {
-  name: string;
-  height: number;
-  weight: number;
+interface PageProps {
+  params: {
+    id: string;
+  };
 }
 
-const Page = async ({ params: { id } }: { params: { id: string } }) => {
-  const currentId = parseInt(id);
+const Page = async ({ params: { id } }: PageProps) => {
   let nextId, previousId;
-
-  if (currentId < 1 || currentId > 1025 || isNaN(currentId)) {
+  const currentId = parseInt(id);
+  if (!/^\d+$/.test(id) || currentId < 1 || currentId > 1025) {
     notFound();
-  }
-  if (currentId !== 1025) {
-    nextId = currentId + 1;
-  }
-  if (currentId !== 1) {
-    previousId = currentId - 1;
+  } else {
+    nextId = currentId !== 1025 ? currentId + 1 : 1;
+    previousId = currentId !== 1 ? currentId - 1 : 1025;
   }
 
   const pokemon: any = await fetchPokeApiData(id);

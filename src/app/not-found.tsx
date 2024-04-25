@@ -20,10 +20,16 @@ const NotFoundPage = () => {
         src={`/images/404_notfound.png`}
         objectFit='contain'
       />
-      <Typography variant='h2'>Uh-oh!</Typography>
-      <Typography variant='h5'>You look lost on your journey!</Typography>
+      <Typography variant='h2' color='#fff'>
+        Uh-oh!
+      </Typography>
+      <Typography variant='h5' color='#fff'>
+        You look lost on your journey!
+      </Typography>
       <Link href='/'>
-        <Typography variant='h6'>{'\u2190'} Go back home</Typography>
+        <Typography variant='h6' color='#fff'>
+          {'\u2190'} Go back home
+        </Typography>
       </Link>
     </Box>
   );
